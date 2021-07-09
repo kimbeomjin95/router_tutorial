@@ -3,7 +3,8 @@ import './App.css';
 import { Route, Link } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
-import Profile from './Profile';
+import Profile from './Profiles';
+import Profiles from './Profiles';
 
 function App() {
   return (
@@ -18,10 +19,7 @@ function App() {
           <Link to="/about">소개</Link>
         </li>
         <li>
-          <Link to="/profile/bjk">김범진 프로필</Link>
-        </li>
-        <li>
-          <Link to="/profile/chs">최한솔 프로필</Link>
+          <Link to="/profiles">프로필</Link>
         </li>
       </ul>
       <hr />
@@ -29,6 +27,7 @@ function App() {
       {/* path props를 배열로 설정해 주면 여러 경로에서 같은 컴포넌트로 설정 */}
       <Route path={['/about', '/info']} component={About} />
       <Route path="/profile/:username" component={Profile} />
+      <Route path="/profiles" component={Profiles} />
     </div>
   );
 }
