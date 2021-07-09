@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+// Route 컴포넌트를 사용하면 어떤 규칙을 가진 경로에 어떤 컴포넌트를 보여줄 지 정의
+import { Route } from 'react-router-dom'; 
+import Home from './Home';
+import About from './About';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // <Route path="주소규칙" component={보여줄 컴포넌트} />
+    // exact: /(루트) 경로가 동일하므로 이를 방지하기 위한 설정
+    <div>
+      <Route path="/" component={Home} exact /> 
+      <Route path="/about" component={About} />
     </div>
   );
 }
