@@ -15,7 +15,7 @@ const WithRouterSample = ({ location, match, history }) => {
         rows={7}
         readOnly={true}
       />
-      <button onClick={() => history.push('/')}>홈으로</button>
+      <button onClick={() => history.push('/')}>홈으로</button>.
     </div>
   );
 };
