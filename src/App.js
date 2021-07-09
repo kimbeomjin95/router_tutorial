@@ -19,7 +19,8 @@ function App() {
       </ul>
       <hr />
       <Route path="/" component={Home} exact /> 
-      <Route path="/about" component={About} />
+      {/* path props를 배열로 설정해 주면 여러 경로에서 같은 컴포넌트로 설정 */}
+      <Route path={['/about', '/info']} component={About} /> 
     </div>
   );
 }
