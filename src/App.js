@@ -1,6 +1,6 @@
 import './App.css';
 // Route 컴포넌트를 사용하면 어떤 규칙을 가진 경로에 어떤 컴포넌트를 보여줄 지 정의
-import { Route, Link } from 'react-router-dom';
+import { Route, Link, Switch } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import Profile from './Profiles';
@@ -27,12 +27,23 @@ function App() {
         </li>
       </ul>
       <hr />
-      <Route path="/" component={Home} exact />
-      {/* path props를 배열로 설정해 주면 여러 경로에서 같은 컴포넌트로 설정 */}
-      <Route path={['/about', '/info']} component={About} />
-      <Route path="/profile/:username" component={Profile} />
-      <Route path="/profiles" component={Profiles} />
-      <Route path="/history" component={HistorySample} />
+      <Switch>
+        <Route path="/" component={Home} exact />
+        {/* path props를 배열로 설정해 주면 여러 경로에서 같은 컴포넌트로 설정 */}
+        <Route path={['/about', '/info']} component={About} />
+        <Route path="/profile/:username" component={Profile} />
+        <Route path="/profiles" component={Profiles} />
+        <Route path="/history" component={HistorySample} />
+        {/* path를 따로 정의하지 않으면 모든 상황에 렌더링 됨 */}
+        <Route
+          render={({ location }) => (
+            <div>
+              <h2>이 페이지는 존재하지 않습니다.</h2>
+              <p>{location.pathname}</p>
+            </div>
+          )}
+        />
+      </Switch>
     </div>
   );
 }
